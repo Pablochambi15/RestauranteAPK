@@ -1,0 +1,103 @@
+/* Fondo y fuente */
+body {
+    background: #f8c9a3 url('/img/fondo.png') repeat;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contenedor principal centrado */
+  .contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  /* Contenedor de tarjetas */
+  .menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1000px;
+  }
+  
+  /* Estilos base de tarjeta */
+  .card {
+    background: #fff;
+    width: 400px;
+    height: auto;
+    padding: 100px 50px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover tarjeta */
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Título */
+  .card h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  /* Imagen dentro de tarjeta */
+  .card img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 15px 0;
+  }
+  
+  /* Botón */
+  .card button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s;
+  }
+  
+  /* Botón hover */
+  .card button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  /* Colores personalizados */
+  .card.green {
+    background: #c8facc;
+  }
+  
+  .card.green button {
+    background: #00cc44;
+    box-shadow: 0 0 10px #00cc44;
+  }
+  
+  .card.orange {
+    background: #fdd9a0;
+  }
+  
+  .card.orange button {
+    background: #ff6600;
+    box-shadow: 0 0 10px #ff6600;
+  }
+  
+  .card.red {
+    background: #ffb3b3;
+  }
+  
+  .card.red button {
+    background: #cc0000;
+    box-shadow: 0 0 10px #cc0000;
+  }
+  

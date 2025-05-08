@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div th:fragment="header">
+      <header style="background-color:#333; color:white; padding:15px; width:100%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+
+          <!-- Logo a la izquierda -->
+          <div style="flex: 1; text-align: left;">
+            <a th:href="@{/logo}">
+              <img src="/img/logo.png" alt="Logo" style="width:40px; height:40px;">
+            </a>
+          </div>
+
+          <!-- Menú principal al centro -->
+          <div style="flex: 2; text-align: center;">
+            <a th:href="@{/}" style="color:white; margin: 0 10px; text-decoration:none;">Inicio</a>
+            <a th:href="@{/menu}" style="color:white; margin: 0 10px; text-decoration:none;">Carta</a>
+            <a th:href="@{/mesas}" style="color:white; margin: 0 10px; text-decoration:none;">Mesas</a>
+            <a th:href="@{/insumos}" style="color:white; margin: 0 10px; text-decoration:none;">Insumos</a>
+          </div>
+
+          <!-- Iconos a la derecha -->
+          <div style="flex: 1; text-align: right;">
+            <a th:href="@{/ajustes}">
+              <img src="/img/configuraciones.png" alt="Ajustes" style="width:24px; height:24px; margin-left:10px;">
+            </a>
+            <a th:href="@{/soporte}">
+              <img src="/img/soporte.png" alt="Soporte" style="width:24px; height:24px; margin-left:10px;">
+            </a>
+            <a th:href="@{/perfil}">
+              <img src="/img/gente.png" alt="Perfil" style="width:24px; height:24px; margin-left:10px;">
+            </a>
+          </div>
+
+        </div>
+      </header>
+    </div>
+  </body>
+</html>

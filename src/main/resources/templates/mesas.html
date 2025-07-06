@@ -1,0 +1,26 @@
+<div layout:decorate="~{base}">
+    <div layout:fragment="content">
+        <div class="container-mesas">
+            <h2>Gestión de mesas</h2>
+            <a href="/mesas/nueva" class="btn-add">+Añadir mesas</a>
+            <div class="mesas-grid">
+                <div th:each="mesa : ${mesas}">
+                    <div class="mesa-card">
+                        <h3 th:text="'Mesa ' + ${mesa.numero}"></h3>
+                        <p th:text="${mesa.capacidad} + ' personas'"></p>
+                        <form th:action="@{'/mesas/estado/' + ${mesa.id}}" method="post">
+                            <span class="estado" th:classappend="${mesa.estado} == 'Disponible' ? 'disponible' : 'ocupado'" th:text="${mesa.estado}"></span>
+                            <input type="hidden" name="estado" th:value="${mesa.estado} == 'Disponible' ? 'Ocupado' : 'Disponible'">
+                            <button type="submit" class="btn-estado" th:text="${mesa.estado} == 'Disponible' ? 'Ocupar' : 'Liberar'"></button>
+                        </form>
+                        <div class="mesa-actions">
+                            <a th:href="@{'/mesas/editar/' + ${mesa.id}}" class="btn-editar">Editar</a>
+                            <a th:href="@{'/mesas/eliminar/' + ${mesa.id}}" class="btn-eliminar" onclick="return confirm('¿Seguro que deseas eliminar esta mesa?')">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <link rel="stylesheet" href="/css/mesas.css">
+    </div>
+</div> 

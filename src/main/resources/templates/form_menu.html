@@ -1,0 +1,33 @@
+<div layout:decorate="~{base}">
+    <div layout:fragment="content">
+        <div class="form-container">
+            <h2 th:text="${menu.id} != null ? 'Editar Menú' : 'Agregar Menú'"></h2>
+            <form th:action="@{${menu.id} != null ? '/menus/actualizar/' + ${menu.id} : '/menus'}" method="post">
+                <label for="nombre">Nombre del plato:</label>
+                <input type="text" id="nombre" name="nombre" th:value="${menu.nombre}" required>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <option value="Platillo" th:selected="${menu.categoria} == 'Platillo'">Platillo</option>
+                    <option value="Bebida" th:selected="${menu.categoria} == 'Bebida'">Bebida</option>
+                    <option value="Postre" th:selected="${menu.categoria} == 'Postre'">Postre</option>
+                </select>
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" th:value="${menu.precio}" required>
+                <label for="ingredientes">Ingredientes:</label>
+                <input type="text" id="ingredientes" name="ingredientes" th:value="${menu.ingredientes}">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" th:value="${menu.descripcion}">
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado">
+                    <option value="Disponible" th:selected="${menu.estado} == 'Disponible'">Disponible</option>
+                    <option value="No disponible" th:selected="${menu.estado} == 'No disponible'">No disponible</option>
+                </select>
+                <label for="urlImagen">URL de la imagen:</label>
+                <input type="text" id="urlImagen" name="urlImagen" th:value="${menu.urlImagen}">
+                <button type="submit" class="btn-guardar" th:text="${menu.id} != null ? 'Actualizar' : 'Agregar'"></button>
+                <a href="/menus" class="btn-cancelar">Cancelar</a>
+            </form>
+        </div>
+        <link rel="stylesheet" href="/css/menus.css">
+    </div>
+</div> 

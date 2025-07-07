@@ -10,19 +10,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.RestauranteWeb.restauranteweb.service.MenuItemService;
+import com.RestauranteWeb.restauranteweb.service.MesaService;
 import com.RestauranteWeb.restauranteweb.service.UserService;
 
 
 @Controller
 public class HomeController {
 
+    private final MesaService mesaService;
+
+
         private final UserService userService;
     
       private final MenuItemService menuItemService; 
 
-    public HomeController(UserService userService, MenuItemService menuItemService) {
+    public HomeController(UserService userService, MenuItemService menuItemService, MesaService mesaService) {
         this.userService = userService;
         this.menuItemService = menuItemService;
+        this.mesaService = mesaService;
     }
     
     @GetMapping("/login")
@@ -69,6 +74,17 @@ public String empleados() {
 
     model.addAttribute("totalMenuItems", totalPlatos);
     model.addAttribute("availableMenuItems", disponibles);
+
+    int totalMesas = mesaService.obtenerTodasLasMesas().size();
+    int mesasOcupadas = mesaService.contarMesasPorEstado("Ocupada");
+    int mesasDisponibles = mesaService.contarMesasDisponibles(); 
+
+    // Agrega al modelo
+    model.addAttribute("totalMenuItems", totalPlatos);
+    model.addAttribute("availableMenuItems", disponibles);
+    model.addAttribute("totalTables", totalMesas);
+    model.addAttribute("occupiedTables", mesasOcupadas);
+    model.addAttribute("availableTables", mesasDisponibles);
 
     return "home";
 }

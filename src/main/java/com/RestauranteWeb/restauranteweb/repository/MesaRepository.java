@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MesaRepository extends JpaRepository<Mesa, Long> {
-} 
+
+    // ✅ Cuenta cuántas mesas tienen un estado específico (sin importar mayúsculas)
+    int countByEstadoIgnoreCase(String estado);
+}

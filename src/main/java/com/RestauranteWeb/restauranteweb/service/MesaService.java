@@ -58,5 +58,13 @@ public class MesaService {
 public List<Mesa> listarMesas() {
     return mesaRepository.findAll();
 }
+public int contarMesasPorEstado(String estado) {
+    return mesaRepository.countByEstadoIgnoreCase(estado);
+
+}
+
+public int contarMesasDisponibles() {
+    return mesaRepository.countByEstadoIgnoreCase("Disponible");
+}
 
 }

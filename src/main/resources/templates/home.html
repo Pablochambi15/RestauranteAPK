@@ -31,11 +31,15 @@
                 <div class="stat-content">
                     <h3>Mesas Totales</h3>
                     <p class="stat-value" th:text="${totalTables}">12</p>
-                    <p class="stat-subtext" th:text="${occupiedTables} + ' ocupadas'">5 ocupadas</p>
+                    <p class="stat-subtext" th:text="${availableTables} + ' libres'">
+    7 libres
+</p>
+
+
                 </div>
             </div>
 
-            <!-- Tarjeta de Platillos -->
+        
             <div class="stat-card">
                 <div class="stat-icon bg-green">
                     <i class="fas fa-utensils"></i>
@@ -48,16 +52,16 @@
             </div>
         </div>
 
-        <!-- Gráfico de Ventas -->
+   
         <div class="chart-container">
             <h2><i class="fas fa-chart-line"></i> Ventas Recientes</h2>
             <canvas id="salesChart"></canvas>
         </div>
     </div>
 
-    <!-- Scripts necesarios -->
+  
     <div layout:fragment="page-scripts">
-        <!-- Chart.js para el gráfico -->
+       
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script th:src="@{/js/hom.js}"></script>
     </div>

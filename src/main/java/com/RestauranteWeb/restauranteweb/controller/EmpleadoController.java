@@ -44,4 +44,11 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
 
+    @GetMapping("/reportes")
+public String verReportes(Model model) {
+    model.addAttribute("empleados", empleadoService.listarEmpleados());
+    return "reportes"; // este nombre debe coincidir con el archivo HTML
+}
+
+
 }

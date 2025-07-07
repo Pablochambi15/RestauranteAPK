@@ -1,0 +1,61 @@
+<section xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{base}" layout:fragment="content">
+
+  <style>
+    .report-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .status-active {
+      color: green;
+      font-weight: bold;
+    }
+    .status-inactive {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+
+  <h1 class="report-title">Reporte de Empleados</h1>
+  <div style="text-align: right; margin-bottom: 15px;">
+    <a href="/reportes/pdf" class="btn btn-primary"
+       style="padding: 8px 16px; background: #007bff; color: white; text-decoration: none; border-radius: 4px;">
+       Descargar PDF
+    </a>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="empleado : ${empleados}">
+        <td th:text="${empleado.id}">1</td>
+        <td th:text="${empleado.nombre}">Nombre</td>
+        <td th:text="${empleado.correo}">correo@ejemplo.com</td>
+        <td th:text="${empleado.rol}">Rol</td>
+        <td th:text="${empleado.estado}"
+            th:classappend="${empleado.estado} == 'Activo' ? 'status-active' : 'status-inactive'">
+            Estado
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
